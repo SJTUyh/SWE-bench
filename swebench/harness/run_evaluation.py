@@ -143,7 +143,7 @@ def run_instance(
     log_file = log_dir / LOG_INSTANCE
     logger = setup_logger(instance_id, log_file)
 
-    print("1111111111111111111111111111111111111111111111111111111111111111111111")
+    #print("1111111111111111111111111111111111111111111111111111111111111111111111")
     # Run the instance
     container = None
     eval_completed = False
@@ -153,6 +153,7 @@ def run_instance(
         container = build_container(
             test_spec, client, run_id, logger, rm_image, force_rebuild
         )
+        print("1111111111111111111111111111111111111111111111111111111111111111111111")
         container.start()
         logger.info(f"Container for {instance_id} started: {container.id}")
 
