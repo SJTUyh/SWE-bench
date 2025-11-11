@@ -489,9 +489,9 @@ def build_container(
     # Build corresponding instance image
     #print("11111111111111111111111111111111111111111111111111111111111")
     if force_rebuild:
+        print("111111111111111111111111111111111111111111111111111111111111")
         remove_image(client, test_spec.instance_image_key, "quiet")
     if not test_spec.is_remote_image:
-        print("111111111111111111111111111111111111111111111111111111111111")
         build_instance_image(test_spec, client, logger, nocache)
         #print("111111111111111111111111111111111111111111111111111111111111")
     else:
