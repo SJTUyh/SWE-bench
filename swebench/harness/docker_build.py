@@ -489,7 +489,7 @@ def build_container(
     # Build corresponding instance image
     #print("11111111111111111111111111111111111111111111111111111111111")
     if force_rebuild:
-        print("111111111111111111111111111111111111111111111111111111111111")
+        #print("111111111111111111111111111111111111111111111111111111111111")
         remove_image(client, test_spec.instance_image_key, "quiet")
     if not test_spec.is_remote_image:
         build_instance_image(test_spec, client, logger, nocache)
@@ -497,6 +497,7 @@ def build_container(
     else:
         try:
             client.images.get(test_spec.instance_image_key)
+            print("111111111111111111111111111111111111111111111111111111111111")
         except docker.errors.ImageNotFound:
             try:
                 client.images.pull(test_spec.instance_image_key)
