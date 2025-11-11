@@ -496,8 +496,9 @@ def build_container(
         #print("111111111111111111111111111111111111111111111111111111111111")
     else:
         try:
-            client.images.get(test_spec.instance_image_key)
             print("111111111111111111111111111111111111111111111111111111111111")
+            client.images.get(test_spec.instance_image_key)
+            #print("111111111111111111111111111111111111111111111111111111111111")
         except docker.errors.ImageNotFound:
             try:
                 client.images.pull(test_spec.instance_image_key)
