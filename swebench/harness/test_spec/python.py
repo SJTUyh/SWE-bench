@@ -138,7 +138,7 @@ def get_environment_yml(instance: SWEbenchInstance, env_name: str) -> str:
 def get_requirements_by_commit(repo: str, commit: str) -> str:
     for req_path in MAP_REPO_TO_REQS_PATHS[repo]:
         reqs_url = posixpath.join(SWE_BENCH_URL_RAW, repo, commit, req_path)
-        reqs = requests.get(reqs_url, headers=HEADERS)
+        reqs = requests.get(reqs_url, headers=HEADERS, verify=False)
         if reqs.status_code == 200:
             break
     else:
