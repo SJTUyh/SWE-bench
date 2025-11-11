@@ -143,6 +143,7 @@ def run_instance(
     log_file = log_dir / LOG_INSTANCE
     logger = setup_logger(instance_id, log_file)
 
+    print("1111111111111111111111111111111111111111111111111111111111111111111111")
     # Run the instance
     container = None
     eval_completed = False
