@@ -32,7 +32,7 @@ REPLACE_REQ_PACKAGES = [
 def get_environment_yml_by_commit(repo: str, commit: str, env_name: str) -> str:
     for req_path in MAP_REPO_TO_ENV_YML_PATHS[repo]:
         reqs_url = posixpath.join(SWE_BENCH_URL_RAW, repo, commit, req_path)
-        reqs = requests.get(reqs_url, headers=HEADERS)
+        reqs = requests.get(reqs_url, headers=HEADERS, verify=False)
         if reqs.status_code == 200:
             break
     else:
@@ -165,7 +165,7 @@ def get_requirements_by_commit(repo: str, commit: str) -> str:
                 req_dir,
                 file_name,
             )
-            reqs = requests.get(reqs_url, headers=HEADERS)
+            reqs = requests.get(reqs_url, headers=HEADERS, verify=False)
             if reqs.status_code == 200:
                 for line_extra in reqs.text.split("\n"):
                     if not exclude_line(line_extra):
