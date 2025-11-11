@@ -487,6 +487,7 @@ def build_container(
         force_rebuild (bool): Whether to force rebuild the image even if it already exists
     """
     # Build corresponding instance image
+    print("11111111111111111111111111111111111111111111111111111111111")
     if force_rebuild:
         remove_image(client, test_spec.instance_image_key, "quiet")
     if not test_spec.is_remote_image:
